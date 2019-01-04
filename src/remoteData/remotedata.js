@@ -11,6 +11,7 @@ class RestAPI extends React.Component {
         }
 
         this.getRemoteData = this.getRemoteData.bind(this)
+        this.displayDetail = this.displayDetail.bind(this)
 
     }
 
@@ -30,13 +31,20 @@ class RestAPI extends React.Component {
             })
     }
 
+    displayDetail(id){
+        console.log(id)
+        
+    }
+
     displayFriends(){
         console.log("Friends will be displayed here!!!!")
         return this.state.friends.map((f)=>{
             return (<Friend
                         key={f.id}
+                        myid={f.id}
                         nm={f.name}
                         em={f.email}
+                        detail={this.displayDetail}
                     ></Friend>)
         })
     }
