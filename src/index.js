@@ -6,6 +6,7 @@ import Welcome from "./welcomecomponent";
 import Review from './component/review/reviewComponent'
 import Alphabet from './component/alphabet';
 import Lifecycle from './lifecycle/lifecycle';
+import RestAPI from './remoteData/remotedata';
 
 var location = document.getElementById('home')
 
@@ -41,4 +42,6 @@ ReactDOM.render(
     </div>
             , loc2)    
 
-ReactDOM.render(<Lifecycle></Lifecycle>, document.getElementById('lifecycle'))            
+ReactDOM.render(<Lifecycle></Lifecycle>, document.getElementById('lifecycle'))  
+
+ReactDOM.render(<RestAPI></RestAPI>, document.getElementById('remotedata'))
