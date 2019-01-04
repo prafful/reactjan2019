@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+
 import Welcome from "./welcomecomponent";
 import Review from './component/review/reviewComponent'
 import Alphabet from './component/alphabet';
+import Lifecycle from './lifecycle/lifecycle';
 
 var location = document.getElementById('home')
 
@@ -29,9 +31,14 @@ ReactDOM.render(
 
 ReactDOM.render(
     <div>
+    <div>
         <Review title="Samsung Note 9" desc="Creativity comes with the cost!!!!" rating="10" ></Review>
         <Review title="Nokia 3010" desc="old is gold!!!!" rating="9" ></Review>
         <Review title="No Mobile" desc="Digital englightment!!!!" rating="100" ></Review>
         <Review title="Stone" desc="Everyone is looking for!!!!" rating="10" ></Review>
     </div>
+   
+    </div>
             , loc2)    
+
+ReactDOM.render(<Lifecycle></Lifecycle>, document.getElementById('lifecycle'))            
