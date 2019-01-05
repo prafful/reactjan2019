@@ -7,12 +7,20 @@ class RestAPI extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            friends:[]
+            friends:[],
+            name:"",
+            description:"",
+            upvote:0,
+            downvote:0
         }
 
         this.getRemoteData = this.getRemoteData.bind(this)
         this.displayDetail = this.displayDetail.bind(this)
-
+        this.getName = this.getName.bind(this)
+        this.getDesc = this.getDesc.bind(this)
+        this.getUp = this.getUp.bind(this)
+        this.getDown = this.getDown.bind(this)
+        this.addProduct = this.addProduct.bind(this)
     }
 
     componentWillMount(){
@@ -21,7 +29,7 @@ class RestAPI extends React.Component {
 
     getRemoteData(){
         console.log("axios will call rest api now!")
-        axios.get("https://jsonplaceholder.typicode.com/users")
+        axios.get("http://localhost:3000/products")
             .then((responsedata)=>{
                 console.log(this.state.friends)
                 console.log(responsedata.data)
@@ -35,11 +43,10 @@ class RestAPI extends React.Component {
         console.log(id)
         this.state.friends.map((f)=>{
             if(f.id === id){
-                console.log(" Username: " 
-                                    + f.username 
-                                    + " at " 
-                                    + f.address.geo.lat+ ", " 
-                                    + f.address.geo.lng)
+                console.log(" Votes: " 
+                                    + f.upvote 
+                                    + " and " 
+                                    + f.downvote)
             }
         })
         
@@ -52,15 +59,61 @@ class RestAPI extends React.Component {
                         key={f.id}
                         myid={f.id}
                         nm={f.name}
-                        em={f.email}
+                        dc={f.description}
                         detail={this.displayDetail}
                     ></Friend>)
         })
     }
 
+    addProduct(){
+        console.log("addProduct called!!!!  ")
+        var jsonproduct = {
+            "name":this.state.name,
+            "upvote": this.state.upvote,
+            "downvote": this.state.downvote,
+            "description":this.state.description
+        }
+        console.log(jsonproduct)
+        axios.post("http://localhost:3000/products", jsonproduct)
+            .then((rd)=>{
+                console.log(rd)
+                this.getRemoteData()
+            })
+
+            
+    }
+
+    getName(event){
+        console.log(event.target.value)
+        this.setState({name: event.target.value})
+    }
+
+    getDesc(event){
+        console.log(event.target.value)
+        this.setState({description: event.target.value})
+    }
+
+    getUp(event){
+        console.log(event.target.value)
+        this.setState({upvote: event.target.value})
+    }
+
+    getDown(event){
+        console.log(event.target.value)
+        this.setState({downvote: event.target.value})
+    }
+
     render() { 
         return (
             <div>
+                <div>
+                    Name: <input type="text" onChange={this.getName}></input> <br></br>
+                    Description: <input type="text" onChange={this.getDesc}></input> <br></br>
+                    Upvote: <input type="number" onChange={this.getUp}></input><br></br>
+                    Downvote: <input type="number" onChange={this.getDown}></input><br></br>
+                    <button onClick={this.addProduct}>Add</button>
+                </div>
+
                 Data will come from REST API!!!!
                 Each friend detail will be displayed!!!!
                 <table border="1">

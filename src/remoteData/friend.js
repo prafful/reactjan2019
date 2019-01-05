@@ -16,7 +16,7 @@ class Friend extends React.Component {
         return ( 
             <tr onClick={this.getFriendDetail}>
                 <td>{this.props.nm}</td>
-                <td>{this.props.em}</td>
+                <td>{this.props.dc}</td>
             </tr>
          );
     }

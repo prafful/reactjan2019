@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Samsung Note 9",
+      "upvote": 10,
+      "downvote": 8,
+      "description": "handy toolkit for creative people!"
+    },
+    {
+      "id": 2,
+      "name": "Nokia 1100",
+      "upvote": 60,
+      "downvote": 10,
+      "description": "Modern ancestor of devices!"
+    },
+    {
+      "id": 3,
+      "name": "Dialer",
+      "upvote": 80,
+      "downvote": 10,
+      "description": "round round finger phone!"
+    },
+    {
+      "name": "pager",
+      "upvote": "8",
+      "downvote": "-5",
+      "description": "old watsapp",
+      "id": 4
+    },
+    {
+      "name": "piegon",
+      "upvote": "24",
+      "downvote": "-4",
+      "description": "save old is gold ",
+      "id": 5
+    },
+    {
+      "name": "telepathy",
+      "upvote": "59",
+      "downvote": "-4",
+      "description": "too advance",
+      "id": 6
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-
 import Welcome from "./welcomecomponent";
 import Review from './component/review/reviewComponent'
 import Alphabet from './component/alphabet';
