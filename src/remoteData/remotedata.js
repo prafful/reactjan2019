@@ -33,6 +33,15 @@ class RestAPI extends React.Component {
 
     displayDetail(id){
         console.log(id)
+        this.state.friends.map((f)=>{
+            if(f.id === id){
+                console.log(" Username: " 
+                                    + f.username 
+                                    + " at " 
+                                    + f.address.geo.lat+ ", " 
+                                    + f.address.geo.lng)
+            }
+        })
         
     }
 
